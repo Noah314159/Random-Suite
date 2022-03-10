@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Random Suite</string>
+    <string name="rollButtonText">Roll!</string>
+    <string name="plusButtonText">+</string>
+    <string name="minusButtonText">-</string>
+    <string name="d20LabelText">D20</string>
+    <string name="d4LabelText">D4</string>
+    <string name="d6LabelText">D6</string>
+    <string name="d8LabelText">D8</string>
+    <string name="d10LabelText">D10</string>
+    <string name="d12LabelText">D12</string>
+    <string name="d100LabelText">D100</string>
+</resources>

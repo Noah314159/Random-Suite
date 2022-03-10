@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".MainActivity">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <LinearLayout
+        android:id="@+id/roll_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/d20PlusMinus_layout"
+        app:layout_constraintVertical_bias="0.991">
+
+        <Button
+            android:id="@+id/roll_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/darkGrey"
+            android:shadowColor="@color/black"
+            android:text="@string/rollButtonText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/d20PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/d20_numberOf"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/d20Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/plusButtonText"
+            android:textSize="@dimen/plusMinus_textSize" />
+
+        <Button
+            android:id="@+id/d20Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/minusButtonText"
+            android:textSize="@dimen/plusMinus_textSize" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d20_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="@string/d20LabelText"
+        android:textColor="@color/white"
+        android:textSize="@dimen/label_textSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/d20_numberOf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/d20PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d20_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/d20PlusMinus_layout"
+        app:layout_constraintStart_toEndOf="@+id/d20_label"
+        app:layout_constraintTop_toTopOf="@+id/d20PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/resultBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resultLongBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultBox" />
+
+    <TextView
+        android:id="@+id/d4_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/d4LabelText"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/d20_label"
+        app:layout_constraintEnd_toEndOf="@+id/d20_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/d4PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d4_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toTopOf="@+id/d20_numberOf"
+        app:layout_constraintEnd_toStartOf="@+id/d4PlusMinus_layout"
+        app:layout_constraintStart_toEndOf="@+id/d4_label"
+        app:layout_constraintTop_toTopOf="@+id/d4PlusMinus_layout" />
+
+    <LinearLayout
+        android:id="@+id/d4PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/d20PlusMinus_layout"
+        app:layout_constraintEnd_toEndOf="@+id/d20PlusMinus_layout"
+        app:layout_constraintStart_toStartOf="@+id/d20PlusMinus_layout">
+
+        <Button
+            android:id="@+id/d4Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/plusButtonText" />
+
+        <Button
+            android:id="@+id/d4Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/minusButtonText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/d6PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/roll_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/d6_numberOf"
+        app:layout_constraintTop_toTopOf="@+id/d4PlusMinus_layout">
+
+        <Button
+            android:id="@+id/d6Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plusButtonText"
+            android:textSize="@dimen/plusMinus_textSize" />
+
+        <Button
+            android:id="@+id/d6Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/minusButtonText"
+            android:textSize="@dimen/plusMinus_textSize" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d6_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toTopOf="@+id/roll_layout"
+        app:layout_constraintEnd_toStartOf="@+id/d6PlusMinus_layout"
+        app:layout_constraintStart_toEndOf="@+id/d6_label"
+        app:layout_constraintTop_toTopOf="@+id/d6PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d6_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/d6LabelText"
+        android:textSize="@dimen/label_textSize"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/roll_layout"
+        app:layout_constraintEnd_toStartOf="@+id/d6_numberOf"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/d6_numberOf" />
+
+    <LinearLayout
+        android:id="@+id/d10PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/d6PlusMinus_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/d6PlusMinus_layout">
+
+        <Button
+            android:id="@+id/d10Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plusButtonText"
+            android:textSize="@dimen/plusMinus_textSize" />
+
+        <Button
+            android:id="@+id/d10Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/minusButtonText"
+            android:textSize="@dimen/plusMinus_textSize" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d10_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toTopOf="@+id/d6_numberOf"
+        app:layout_constraintEnd_toEndOf="@+id/d6_numberOf"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/d6_numberOf"
+        app:layout_constraintTop_toTopOf="@+id/d10PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d10_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/d10LabelText"
+        android:textSize="@dimen/label_textSize"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/d6_label"
+        app:layout_constraintEnd_toStartOf="@+id/d6_numberOf"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/d10PlusMinus_layout" />
+
+    <LinearLayout
+        android:id="@+id/d8PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/d4PlusMinus_layout"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/d4PlusMinus_layout"
+        app:layout_constraintTop_toTopOf="@+id/d10_label">
+
+        <Button
+            android:id="@+id/d8Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plusButtonText" />
+
+        <Button
+            android:id="@+id/d8Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/minusButtonText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d8_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toTopOf="@+id/d4_numberOf"
+        app:layout_constraintEnd_toEndOf="@+id/d4_numberOf"
+        app:layout_constraintStart_toStartOf="@+id/d4_numberOf"
+        app:layout_constraintTop_toTopOf="@+id/d8PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d8_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/d8LabelText"
+        android:textSize="@dimen/label_textSize"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/d4_label"
+        app:layout_constraintEnd_toEndOf="@+id/d4_label"
+        app:layout_constraintStart_toStartOf="@+id/d4_label"
+        app:layout_constraintTop_toTopOf="@+id/d8_numberOf" />
+
+    <LinearLayout
+        android:id="@+id/d100PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/d10PlusMinus_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/d10PlusMinus_layout">
+
+        <Button
+            android:id="@+id/d100Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plusButtonText" />
+
+        <Button
+            android:id="@+id/d100Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/minusButtonText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d100_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toTopOf="@+id/d10_numberOf"
+        app:layout_constraintEnd_toEndOf="@+id/d10_numberOf"
+        app:layout_constraintStart_toStartOf="@+id/d10_numberOf"
+        app:layout_constraintTop_toTopOf="@+id/d100PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d100_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/d100LabelText"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/d10_label"
+        app:layout_constraintEnd_toEndOf="@+id/d10_label"
+        app:layout_constraintStart_toStartOf="@+id/d10_label"
+        app:layout_constraintTop_toTopOf="@+id/d100_numberOf" />
+
+    <LinearLayout
+        android:id="@+id/d12PlusMinus_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/d8PlusMinus_layout"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/d8PlusMinus_layout"
+        app:layout_constraintTop_toTopOf="@+id/d100_label">
+
+        <Button
+            android:id="@+id/d12Plus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plusButtonText" />
+
+        <Button
+            android:id="@+id/d12Minus_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/minusButtonText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d12_numberOf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:textSize="@dimen/numberOf_textSize"
+        app:layout_constraintBottom_toTopOf="@+id/d8_numberOf"
+        app:layout_constraintEnd_toEndOf="@+id/d8_numberOf"
+        app:layout_constraintStart_toStartOf="@+id/d8_numberOf"
+        app:layout_constraintTop_toTopOf="@+id/d12PlusMinus_layout" />
+
+    <TextView
+        android:id="@+id/d12_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/d12LabelText"
+        android:textSize="@dimen/label_textSize"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/d8_label"
+        app:layout_constraintEnd_toEndOf="@+id/d8_label"
+        app:layout_constraintStart_toStartOf="@+id/d8_label"
+        app:layout_constraintTop_toTopOf="@+id/d12_numberOf" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
